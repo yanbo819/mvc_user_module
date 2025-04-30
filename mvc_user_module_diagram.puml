@@ -1,0 +1,86 @@
+@startuml mvc_user_module_diagram
+skinparam backgroundcolor transparent
+skinparam class {
+    BackgroundColor White
+    ArrowColor #444444
+    BorderColor #444444
+}
+
+rectangle "Controller Layer" as controllers {
+  class HomeServlet <<(C,#ADD8E6)>> {
+    +doGet()
+    +doPost()
+  }
+  
+  class LoginServlet <<(C,#ADD8E6)>> {
+    +doGet()
+    +doPost()
+  }
+  
+  class RegisterServlet <<(C,#ADD8E6)>> {
+    +doGet()
+    +doPost()
+  }
+  
+  class ProfileServlet <<(C,#ADD8E6)>> {
+    +doGet()
+    +doPost()
+  }
+}
+
+rectangle "Model Layer" as models {
+  class UserBean <<(M,#98FB98)>> {
+    -String: email
+    -String: password
+    -String: country
+    -...other fields
+    +getters()
+    +setters()
+  }
+  
+  class UserDB <<(M,#98FB98)>> {
+    +addUser()
+    +getUser()
+    +updateUser()
+    +containsEmail()
+  }
+}
+
+rectangle "Database" as database {
+  class "users Table" <<(D,#FFB6C1)>> {
+    +email (PK)
+    +password
+    +country
+    +first_name
+    +...
+  }
+}
+
+rectangle "Utility" as utils {
+  class DatabaseUtil <<(U,#D3D3D3)>> {
+    +getConnection()
+  }
+}
+
+' Relationships
+HomeServlet --> home.jsp : forwards to
+LoginServlet --> login.jsp : forwards to
+RegisterServlet --> register.jsp : forwards to
+ProfileServlet --> profile.jsp : forwards to
+
+HomeServlet --> UserBean : uses
+LoginServlet --> UserBean : uses
+RegisterServlet --> UserBean : uses
+ProfileServlet --> UserBean : uses
+
+UserDB --> DatabaseUtil : uses\nfor connection
+UserDB --> "users Table" : SQL operations
+
+LoginServlet --> UserDB : validates user
+RegisterServlet --> UserDB : adds user
+ProfileServlet --> UserDB : updates user
+
+profile.jsp --> UserBean : displays user info
+home.jsp --> UserBean : displays user info
+
+@enduml

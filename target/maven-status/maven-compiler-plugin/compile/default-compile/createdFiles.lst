@@ -1,0 +1,7 @@
+model/UserDB.class
+util/DatabaseUtil.class
+controller/HomeServlet.class
+model/UserBean.class
+controller/LoginServlet.class
+controller/RegisterServlet.class
+controller/ProfileServlet.class
