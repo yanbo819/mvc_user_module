@@ -1,3 +1,40 @@
+---
+title: Lab 3 Design and Implementation of User Module Using MVC
+author: AL AHMADI ABDULRAHMAN严波
+header-includes:
+  - \usepackage{xeCJK}
+  - \usepackage[most]{tcolorbox}
+  - \usepackage{listings}
+  - \usepackage{xcolor}
+  - \definecolor{vscodebg}{RGB}{30,30,30}       % VS Code dark background
+  - \definecolor{vscodeframe}{RGB}{64,64,64}    % Border color
+  - \colorlet{keyword}{cyan!50!white}           % Keywords (cyan)
+  - \colorlet{string}{yellow!70!white}          % Strings (yellow)
+  - \colorlet{comment}{green!60!white}          % Comments (green)
+  - \lstdefinestyle{vscodedark}{
+      basicstyle=\ttfamily\small\color{white},
+      backgroundcolor=\color{vscodebg},
+      frame=shadowbox,
+      frameround=ttt,
+      rulesepcolor=\color{vscodeframe},
+      rulecolor=\color{vscodeframe},
+      breaklines=true,
+      keywordstyle=\color{keyword},
+      stringstyle=\color{string},
+      commentstyle=\color{comment},
+      numbers=left,
+      numberstyle=\tiny\color{gray}
+    }
+  - \lstset{style=vscodedark}
+  - \tcbset{
+      colback=vscodebg,
+      colframe=vscodeframe,
+      arc=4mm,
+      boxrule=1pt,
+      fonttitle=\bfseries\color{white}
+    }
+---
+
 ## 一、Objectives and Preparations  
 ### 1. Objectives  
 - **JavaBean**: Used `UserBean` to encapsulate user data.  
